@@ -153,30 +153,79 @@
     text-decoration: underline;
   }
 </style>
-<div class="contact-section">
-  <div class="contact-form">
-    <h2>Contact Us</h2>
-    <!-- Replace this form with Zoho CRM form embed code -->
-    <form>
-      <label>Name:</label>
-      <input type="text" name="name">
+    <!-- Zoho CRM Integrated Form -->
+    <form id="webform6916395000000627003" 
+          action="https://crm.zoho.com/crm/WebToLeadForm" 
+          name="WebToLeads6916395000000627003" 
+          method="POST" 
+          onsubmit='javascript:document.charset="UTF-8"; return checkMandatory6916395000000627003()' 
+          accept-charset="UTF-8">
 
-      <label>Email:</label>
-      <input type="email" name="email">
+      <!-- Required hidden Zoho fields -->
+      <input type="hidden" name="xnQsjsdp" value="e49858f3c5497ff9234118fdea645bb039ea76eee25bd0c278b8333193dcf45f">
+      <input type="hidden" name="zc_gad" id="zc_gad" value="">
+      <input type="hidden" name="xmIwtLD" value="c065907136a7f5b58b563e81e959980a8e1cab0fc8a13096aefa4758095bda5aed86f140e15fed652a9fc69d64840b39">
+      <input type="hidden" name="actionType" value="TGVhZHM=">
+      <input type="hidden" name="returnURL" value="https://yukine-37116.github.io/contact-site/">
 
-      <label>Phone:</label>
-      <input type="tel" name="phone">
+      <!-- Visible fields (styled like your form) -->
+      <label for="Last_Name">Name:</label>
+      <input type="text" id="Last_Name" name="Last Name" required>
 
-      <label>POL/POD:</label>
-      <input type="text" name="polpod">
+      <label for="Email">Email:</label>
+      <input type="email" id="Email" name="Email" required>
 
-      <label>Commodity Desc. (HS CODE):</label>
-      <textarea name="message"></textarea>
+      <label for="Phone">Phone:</label>
+      <input type="tel" id="Phone" name="Phone" required>
+
+      <label for="POL/POD:">POL/POD:</label>
+      <input type="text" id="POL/POD:" name="POL/POD:" required>
+
+      <label for="Commodity Desc. (HS CODE)">Commodity Desc. (HS CODE):</label>
+      <textarea id="Commodity Desc. (HS CODE)" name="Commodity Desc. (HS CODE)" required></textarea>
 
       <button type="submit">Send</button>
     </form>
   </div>
 </div>
+
+<!-- Keep Zoho validation script -->
+<script>
+  function validateEmail6916395000000627003 (){
+    var form = document.forms['WebToLeads6916395000000627003'];
+    var emailFld = form.querySelectorAll('[ftype=email]');
+    for(var i=0; i<emailFld.length; i++ ){
+      var emailVal = emailFld[i].value;
+      if(emailVal.trim().length != 0 ){
+        var atpos=emailVal.indexOf('@');
+        var dotpos=emailVal.lastIndexOf('.');
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=emailVal.length){
+          alert('Please enter a valid email address.');
+          emailFld[i].focus();
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  function checkMandatory6916395000000627003() {
+    var mndFileds = ['Last Name','Email','Phone','POL/POD','Commodity Desc. (HS CODE)'];
+    var fldLangVal = ['Name','Email','Phone','POL/POD','Commodity Desc. (HS CODE)'];
+    for(var i=0;i<mndFileds.length;i++) {
+      var fieldObj=document.forms['WebToLeads6916395000000627003'][mndFileds[i]];
+      if(fieldObj) {
+        if(fieldObj.value.trim().length==0) {
+          alert(fldLangVal[i] +' cannot be empty.');
+          fieldObj.focus();
+          return false;
+        }
+      }
+    }
+    if(!validateEmail6916395000000627003()){return false;}
+    document.querySelector('.contact-form button[type=submit]').setAttribute('disabled',true);
+  }
+</script>
 
 <style>
   .contact-section {
@@ -242,7 +291,7 @@
     background-color: #cc580f; 
   }
 </style>
-  </div>
+
 </div>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -426,6 +475,7 @@
 </body>
 
 </html>
+
 
 
 
