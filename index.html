@@ -183,11 +183,11 @@
       <label for="Phone">Phone:</label>
       <input type="tel" id="Phone" name="Phone" required>
 
-      <label for="Annual_Revenue">POL/POD:</label>
-      <input type="text" id="Annual_Revenue" name="Annual Revenue" required>
+      <label for="POL/POD:">POL/POD:</label>
+      <input type="text" id="POL/POD:" name="POL/POD:" required>
 
-      <label for="Secondary_Email">Commodity Desc. (HS CODE):</label>
-      <textarea id="Secondary_Email" name="Secondary Email" required></textarea>
+      <label for="Commodity Desc. (HS CODE)">Commodity Desc. (HS CODE):</label>
+      <textarea id="Commodity Desc. (HS CODE)" name="Commodity Desc. (HS CODE)" required></textarea>
 
       <button type="submit">Send</button>
     </form>
@@ -215,7 +215,7 @@
   }
 
   function checkMandatory6916395000000627003() {
-    var mndFileds = ['Last Name','Email','Phone','Annual Revenue','Secondary Email'];
+    var mndFileds = ['Last Name','Email','Phone','POL/POD','Commodity Desc. (HS CODE)'];
     var fldLangVal = ['Name','Email','Phone','POL/POD','Commodity Desc. (HS CODE)'];
     for(var i=0;i<mndFileds.length;i++) {
       var fieldObj=document.forms['WebToLeads6916395000000627003'][mndFileds[i]];
@@ -297,68 +297,276 @@
   }
 </style>
 
-
-<!-- FOOTER-->
+</div>
 <style>
-  footer {
-    background-color: #0E2A87;   /* nền màu */
-    color: #f0f0f0;          /* màu chữ */
-    padding: 40px 20px;
-    font-size: 18px;  
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Inter", sans-serif;
+  }
+  .formbold-main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
   }
 
-  footer h4 {
-    color: #e67e22;
-    margin-bottom: 15px;
-    font-size: 22px;  
-  }
-
-  footer p {
-    margin: 8px 0;
-    color: #cccccc;
-    font-size: 18px;
-  }
-
-  /* Khung bản đồ */
-  .map-container {
+  .formbold-form-wrapper {
+    margin: 0 auto;
+    max-width: 550px;
     width: 100%;
-    height: 400px;
-    margin-top: 50px;
+    background: white;
   }
 
-    /* Icon màu cam chủ đạo Ratraco */
-  .footer-icon {
-    color: #e67e22;   /* cam chủ đạo */
-    font-weight: bold;
-    margin-right: 6px;
+  .formbold-input-flex {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 22px;
+  }
+  .formbold-input-flex > div {
+    width: 50%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .formbold-textarea {
+    display: flex;
+    flex-direction: column-reverse;
   }
 
-    .map-container iframe {
+  .formbold-form-input {
     width: 100%;
-    height: 100%;
-    border: 0;
+    padding-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #DDE3EC;
+    background: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    color: #07074D;
+    outline: none;
+    resize: none;
   }
+  .formbold-form-input::placeholder {
+    color: #536387;
+  }
+  .formbold-form-input:focus {
+    border-color: #6A64F1;
+  }
+  .formbold-form-label {
+    color: #07074D;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 18px;
+  }
+  .formbold-form-input:focus + .formbold-form-label {
+    color: #6A64F1;
+  }
+
+  .formbold-input-file {
+    margin-top: 30px;
+  }
+  .formbold-input-file input[type="file"] {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    z-index: -1;
+  }
+  .formbold-input-file .formbold-input-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .formbold-filename-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 22px;
+  }
+  .formbold-filename {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 24px;
+    color: #536387;
+  }
+  .formbold-filename svg {
+    cursor: pointer;
+  }
+
+  .formbold-btn {
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 12px 25px;
+    border: none;
+    font-weight: 500;
+    background-color: #6A64F1;
+    color: white;
+    cursor: pointer;
+    margin-top: 25px;
+  }
+  .formbold-btn:hover {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
 </style>
-
 <!-- MAP -->
-<div class="map-container">
+<div class="map-mango-hotel">
   <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1911774973537!2d105.83878587515306!3d21.025035187906635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab90af75b827%3A0xda233ac4f1849591!2sMango%20Hotel!5e0!3m2!1sen!2s!4v1755673777263!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1911774973537!2d105.83878587515306!3d21.025035187906635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab90af75b827%3A0xda233ac4f1849591!2sMango%20Hotel!5e0!3m2!1sen!2s!4v1755673777263!5m2!1sen!2s" 
+    width="100%" 
+    height="450" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
   </iframe>
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-info">
-    <h4>Công ty CP Vận tải và Thương mại Đường sắt (RATRACO)</h4>
-    <p><span class="footer-icon">📍</span>Địa chỉ: Số 118 Lê Duẩn, Phường Văn Miếu - Quốc Tử Giám, Hà Nội</p>
-    <p><span class="footer-icon">☎</span>Điện thoại: (+84) 9062 801 99 </p>
-    <p><span class="footer-icon">✉</span>Email: lvqt@ratraco.com.vn / oszd@ratraco.com.vn</p>
+<footer class="ratraco-footer" style="background-image:url(/uploads/042021/image_fdc968ee.png) !important">
+  <div class="container">
+    <div class="rf-row">
+      
+      <!-- Logo trái -->
+      <div class="rf-left">
+        <a href="/"><img src="images/ratraco.png" alt="Ratraco Logo"></a>
+      </div>
+
+      <!-- Vạch dọc -->
+      <div class="rf-divider" aria-hidden="true"></div>
+
+      <!-- Thông tin phải -->
+      <div class="rf-right">
+        <h4>CÔNG TY CP VẬN TẢI VÀ THƯƠNG MẠI ĐƯỜNG SẮT (RATRACO)</h4>
+        
+        <!-- Thông tin liên hệ chia 2 bên -->
+        <div class="rf-contact">
+          <div class="rf-col">
+            <p>📍 Địa chỉ: Số 118 Lê Duẩn, Hà Nội</p>
+            <p>☎ Điện thoại: (+84) 9062 801 99</p>
+          </div>
+          <div class="rf-col">
+            <p>✉ Email: 
+              <a href="mailto:lvqt@ratraco.com.vn">lvqt@ratraco.com.vn</a> / 
+              <a href="mailto:oszd@ratraco.com.vn">oszd@ratraco.com.vn</a>
+            </p>
+            <p>🔗 Website: 
+              <a href="https://ratraco.com.vn" target="_blank" rel="noopener">ratraco.com.vn</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Social icons -->
+        <div class="rf-social">
+          <a href="https://www.youtube.com/@ratracosolution" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.facebook.com/vantaiduongsatratraco" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Bản quyền -->
+        <div class="rf-copy">© 2025 Ratraco. All rights reserved.</div>
+      </div>
+    </div>
   </div>
 </footer>
+<style>
+.ratraco-footer {
+  background-color: #0a2a82; /* fallback nếu ảnh không load */
+  color: #fff;
+  padding: 10px 10px;
+  font-family: Arial, sans-serif;
+}
 
+.rf-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 100px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.rf-left img {
+  max-width: 350px;
+  height: 80px;
+  margin-top: 40px;
+  margin-left: 50px;  
+}
+
+.rf-divider {
+  width: 2px;
+  background-color: rgba(8, 8, 8, 0.3);
+  min-height: 150px;
+}
+
+.rf-right {
+  flex: 1;
+}
+
+.rf-right h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.rf-contact {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.rf-contact .rf-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.rf-contact p {
+  margin: 10px 0;
+  font-size: 20px;
+  text-align: left;
+}
+
+.rf-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.rf-contact a:hover {
+  text-decoration: underline;
+}
+
+.rf-social {
+  margin: 15px 0;
+}
+
+.rf-social a {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.rf-social a:hover {
+  color: #f39c12;
+}
+
+.rf-copy {
+  font-size: 14px;
+  opacity: 1;
+  margin-top: 3px;
+}
+</style>
 </body>
-
 </html>
 
 
