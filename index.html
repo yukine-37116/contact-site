@@ -182,8 +182,8 @@
       <label for="Phone">Phone:</label>
       <input type="tel" id="Phone" name="Phone" required>
 
-      <label for="Annual_Revenue">POL/POD:</label>
-      <input type="text" id="Annual_Revenue" name="Annual Revenue" required>
+      <label for="City">POL/POD:</label>
+      <input type="text" id="City" name="Annual City" required>
 
       <label for="Description">Commodity Desc. (HS CODE):</label>
       <textarea id="Description" name="Description" required></textarea>
@@ -235,7 +235,7 @@
   }
 
   function checkMandatory6916395000000627003() {
-    var mndFileds = ['Last Name','Email','Phone','Annual Revenue','Description'];
+    var mndFileds = ['Last Name','Email','Phone','City','Description'];
     var fldLangVal = ['Name','Email','Phone','POL/POD','Commodity Desc. (HS CODE)'];
     for(var i=0;i<mndFileds.length;i++) {
       var fieldObj=document.forms['WebToLeads6916395000000627003'][mndFileds[i]];
@@ -580,6 +580,7 @@
 </style>
 </body>
 </html>
+
 
 
 
