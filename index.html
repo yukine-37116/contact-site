@@ -166,16 +166,13 @@
           accept-charset="UTF-8">
 
       <!-- Hidden Zoho fields -->
-      <input type="hidden" name="xnQsjsdp" value="e97c8bd316c022b8ec81eb0fae8f5cb1b90509238bb40768a0adb10498006a55">
+      <input type="hidden" name="xnQsjsdp" value="e49858f3c5497ff9234118fdea645bb039ea76eee25bd0c278b8333193dcf45f">
       <input type="hidden" name="zc_gad" id="zc_gad" value="">
-      <input type="hidden" name="xmIwtLD" value="f32c539f61e82ffce43391084aeeaef5ce84800c3c0a3285af9762723a501521e9d2640696488340cd0fc30f699fa4a3">
+      <input type="hidden" name="xmIwtLD" value="c065907136a7f5b58b563e81e959980a8e1cab0fc8a13096aefa4758095bda5aed86f140e15fed652a9fc69d64840b39">
       <input type="hidden" name="actionType" value="TGVhZHM=">
       <input type="hidden" name="returnURL" value="https://yukine-37116.github.io/contact-site/">
 
-      <!-- Visible fields (giữ layout cũ) -->
-      <label for="Company">Company:</label>
-      <input type="text" id="Company" name="Company" required>
-
+      <!-- Visible fields -->
       <label for="Last_Name">Name:</label>
       <input type="text" id="Last_Name" name="Last Name" required>
 
@@ -185,20 +182,18 @@
       <label for="Phone">Phone:</label>
       <input type="tel" id="Phone" name="Phone" required>
 
-      <label for="City">POL/POD:</label>
-      <input type="text" id="City" name="City" required>
+      <label for="Annual_Revenue">POL/POD:</label>
+      <input type="text" id="Annual_Revenue" name="Annual Revenue" required>
 
       <label for="Description">Commodity Desc. (HS CODE):</label>
       <textarea id="Description" name="Description" required></textarea>
 
-      <!-- Privacy consent -->
-      <label style="font-weight: normal; display: flex; align-items: center; gap: 8px; margin-top: 10px;">
+      <!-- Optional: Privacy consent -->
+      <label>
         <input type="checkbox" id="privacyTool6916395000000627003" onclick="disableErr6916395000000627003()"> 
-        I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a> and <a href="/terms" target="_blank">Terms of Service</a>.
+        I agree to the Privacy Policy and Terms of Service
       </label>
-      <div id="privacyErr6916395000000627003" style="color:red; font-size:12px; visibility:hidden; margin-bottom:10px;">
-        Please accept this
-      </div>
+      <div id="privacyErr6916395000000627003" style="color:red; font-size:12px; visibility:hidden;">Please accept this</div>
 
       <button type="submit">Send</button>
     </form>
@@ -240,8 +235,8 @@
   }
 
   function checkMandatory6916395000000627003() {
-    var mndFileds = ['Company','Last Name','Email','Phone','City','Description'];
-    var fldLangVal = ['Company','Name','Email','Phone','POL/POD','Commodity Desc. (HS CODE)'];
+    var mndFileds = ['Last Name','Email','Phone','Annual Revenue','Description'];
+    var fldLangVal = ['Name','Email','Phone','POL/POD','Commodity Desc. (HS CODE)'];
     for(var i=0;i<mndFileds.length;i++) {
       var fieldObj=document.forms['WebToLeads6916395000000627003'][mndFileds[i]];
       if(fieldObj && fieldObj.value.trim().length==0) {
@@ -314,7 +309,6 @@
   }
 </style>
 
-  
 </div>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -586,6 +580,7 @@
 </style>
 </body>
 </html>
+
 
 
 
