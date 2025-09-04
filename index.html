@@ -159,6 +159,10 @@
     <h2>Contact Us</h2>
 
     <!-- Zoho CRM Integrated Form -->
+    <div class="contact-section">
+  <div class="contact-form">
+    <h2>Contact Us</h2>
+
     <form id="webform6916395000000627003" 
           action="https://crm.zoho.com/crm/WebToLeadForm" 
           name="WebToLeads6916395000000627003" 
@@ -166,35 +170,41 @@
           onsubmit='javascript:document.charset="UTF-8"; return checkMandatory6916395000000627003()' 
           accept-charset="UTF-8">
 
-      <!-- Required hidden Zoho fields -->
+      <!-- Hidden Zoho fields -->
       <input type="hidden" name="xnQsjsdp" value="e49858f3c5497ff9234118fdea645bb039ea76eee25bd0c278b8333193dcf45f">
       <input type="hidden" name="zc_gad" id="zc_gad" value="">
       <input type="hidden" name="xmIwtLD" value="c065907136a7f5b58b563e81e959980a8e1cab0fc8a13096aefa4758095bda5aed86f140e15fed652a9fc69d64840b39">
       <input type="hidden" name="actionType" value="TGVhZHM=">
       <input type="hidden" name="returnURL" value="https://yukine-37116.github.io/contact-site/">
 
-      <!-- Visible fields (styled like your form) -->
+      <!-- Visible fields -->
       <label for="Last_Name">Name:</label>
       <input type="text" id="Last_Name" name="Last Name" required>
 
       <label for="Email">Email:</label>
-      <input type="email" id="Email" name="Email" required>
+      <input type="email" id="Email" name="Email" ftype="email" required>
 
       <label for="Phone">Phone:</label>
       <input type="tel" id="Phone" name="Phone" required>
 
-      <label for="POL/POD:">POL/POD:</label>
-      <input type="text" id="POL/POD:" name="POL/POD:" required>
+      <label for="Annual_Revenue">POL/POD:</label>
+      <input type="text" id="Annual_Revenue" name="Annual Revenue" required>
 
-      <label for="Commodity Desc. (HS CODE)">Commodity Desc. (HS CODE):</label>
-      <textarea id="Commodity Desc. (HS CODE)" name="Commodity Desc. (HS CODE)" required></textarea>
+      <label for="Description">Commodity Desc. (HS CODE):</label>
+      <textarea id="Description" name="Description" required></textarea>
+
+      <!-- Optional: Privacy consent -->
+      <label>
+        <input type="checkbox" id="privacyTool6916395000000627003" onclick="disableErr6916395000000627003()"> 
+        I agree to the Privacy Policy and Terms of Service
+      </label>
+      <div id="privacyErr6916395000000627003" style="color:red; font-size:12px; visibility:hidden;">Please accept this</div>
 
       <button type="submit">Send</button>
     </form>
   </div>
 </div>
 
-<!-- Keep Zoho validation script -->
 <script>
   function validateEmail6916395000000627003 (){
     var form = document.forms['WebToLeads6916395000000627003'];
@@ -214,20 +224,34 @@
     return true;
   }
 
+  function privacyAlert6916395000000627003 (){
+    var privacyTool = document.getElementById('privacyTool6916395000000627003');
+    var privacyErr = document.getElementById('privacyErr6916395000000627003');
+    if(privacyTool && !privacyTool.checked){
+      privacyErr.style.visibility = 'visible';
+      privacyTool.focus();
+      return false;
+    }
+    return true;
+  }
+  function disableErr6916395000000627003 (){
+    var privacyErr = document.getElementById('privacyErr6916395000000627003');
+    privacyErr.style.visibility = 'hidden';
+  }
+
   function checkMandatory6916395000000627003() {
-    var mndFileds = ['Last Name','Email','Phone','POL/POD','Commodity Desc. (HS CODE)'];
+    var mndFileds = ['Last Name','Email','Phone','Annual Revenue','Description'];
     var fldLangVal = ['Name','Email','Phone','POL/POD','Commodity Desc. (HS CODE)'];
     for(var i=0;i<mndFileds.length;i++) {
       var fieldObj=document.forms['WebToLeads6916395000000627003'][mndFileds[i]];
-      if(fieldObj) {
-        if(fieldObj.value.trim().length==0) {
-          alert(fldLangVal[i] +' cannot be empty.');
-          fieldObj.focus();
-          return false;
-        }
+      if(fieldObj && fieldObj.value.trim().length==0) {
+        alert(fldLangVal[i] +' cannot be empty.');
+        fieldObj.focus();
+        return false;
       }
     }
     if(!validateEmail6916395000000627003()){return false;}
+    if(!privacyAlert6916395000000627003()){return false;}
     document.querySelector('.contact-form button[type=submit]').setAttribute('disabled',true);
   }
 </script>
@@ -239,7 +263,6 @@
     align-items: center;
     margin: 50px 0;
   }
-
   .contact-form {
     background: #f9f9f9;
     border: 2px solid #e67e22;
@@ -249,7 +272,6 @@
     width: 100%;
     box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
   }
-
   .contact-form h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -257,14 +279,12 @@
     font-size: 24px;
     font-weight: bold;
   }
-
   .contact-form label {
     display: block;
     margin: 10px 0 5px;
     font-weight: bold;
     color: #333;
   }
-
   .contact-form input,
   .contact-form textarea {
     width: 100%;
@@ -274,12 +294,10 @@
     font-size: 16px;
     margin-bottom: 15px;
   }
-
   .contact-form textarea {
     resize: vertical;
     height: 100px;
   }
-
   .contact-form button {
     background-color: #e67e22;
     color: #fff;
@@ -291,7 +309,6 @@
     width: 100%;
     transition: background 0.3s ease;
   }
-
   .contact-form button:hover {
     background-color: #cc580f; 
   }
@@ -568,6 +585,7 @@
 </style>
 </body>
 </html>
+
 
 
 
