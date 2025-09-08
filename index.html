@@ -1,667 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Center of International Transport</title>
-<style>
-  body {
-    font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
-    background-color: #ffffff;
-    color: #333;
-  }
-  header {
-    background-color: #0E2A87; /* Ratraco main color */
-    padding: 15px 30px;
-    color: white;
-    display: flex;
-    justify-content: center;    
-    align-items: center;
-  }
-  header img {
-    height: 50px;
-    margin-right: 15px;
-  }
-  h1, h2 {
-    color: #000000;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  th {
-    background-color: #f5f5f5;
-    text-align: left;
-  }
-  th, td {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  a {
-    color: #000000;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  footer {
-    background-color: #333;
-    color: #ccc;
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-  }
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Center of International Transport - Ratraco</title>
+  <meta name="description" content="Ratraco International Transport Center - Fast, Safe, Green, and Efficient Transport Services">
+  <meta name="keywords" content="transport, logistics, international shipping, Ratraco">
+  
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- HEADER-->
-<header class="header">
-  <div class="container">
-    <div class="logo">
-      <a href="https://ratraco.com.vn" target="_blank">
-        <img src="ratraco.png" alt="Ratraco Logo" style="height:60px;">
-      </a>
+  <!-- Header Section -->
+  <header class="header" role="banner">
+    <div class="container">
+      <div class="logo">
+        <a href="https://ratraco.com.vn" target="_blank" rel="noopener noreferrer" aria-label="Visit Ratraco official website">
+          <img src="ratraco.png" alt="Ratraco Logo" style="height:60px;">
+        </a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<h1 class="page-title">Ratraco International Transport Center</h1>
-<p class="subtitle">Fast - Safe - Green - Efficient Transport</p>
-<style>
-  .page-title {
-    text-align: center;
-    font-size: 38px;              /* chữ lớn hơn */
-    font-weight: bold;
-    color: #e67e22;               /* xanh chủ đạo Ratraco */
-    margin-top: 30px;
-    margin-bottom: 10px;          /* sát subtitle */
-    font-family: 'Roboto', Arial, sans-serif;
-  }
+  <!-- Main Content -->
+  <main role="main">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1 class="page-title">Ratraco International Transport Center</h1>
+      <p class="subtitle">Fast - Safe - Green - Efficient Transport</p>
+    </section>
 
-  .subtitle {
-    text-align: center;
-    font-size: 22px;            
-    font-weight: 500;
-    color: #000000;               
-    margin: 4px 0;                
-    font-family: 'Roboto', Arial, sans-serif;
-  }
-</style>
-<table class="contact-table">
-  <tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Zalo</th>
-  </tr>
-  <tr>
-    <td>Nguyen Duy Kien</td>
-    <td><a href="tel:0834505518">0834505518</a></td>
-    <td><a href="mailto:kiennd@ratraco.com.vn">kiennd@ratraco.com.vn</a></td>
-    <td><a href="https://zalo.me/0834505518" target="_blank">Zalo Link</a></td>
-  </tr>
-  <tr>
-    <td>Bui Xuan Hung</td>
-    <td><a href="tel:0901761112">0901761112</a></td>
-    <td><a href="mailto:hungbx@ratraco.com.vn">hungbx@ratraco.com.vn</a></td>
-    <td><a href="https://zalo.me/0901761112" target="_blank">Zalo Link</a></td>
-  </tr>
-</table>
+    <!-- Contact Information Section -->
+    <section class="contact-info-section" aria-labelledby="contact-info-heading">
+      <h2 id="contact-info-heading" class="sr-only">Contact Information</h2>
+      <div class="table-container">
+        <table class="contact-table" role="table" aria-label="Contact Information">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
+              <th scope="col">Zalo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nguyen Duy Kien</td>
+              <td><a href="tel:0834505518" aria-label="Call Nguyen Duy Kien">0834505518</a></td>
+              <td><a href="mailto:kiennd@ratraco.com.vn" aria-label="Email Nguyen Duy Kien">kiennd@ratraco.com.vn</a></td>
+              <td><a href="https://zalo.me/0834505518" target="_blank" rel="noopener noreferrer" aria-label="Contact Nguyen Duy Kien on Zalo">Zalo Link</a></td>
+            </tr>
+            <tr>
+              <td>Bui Xuan Hung</td>
+              <td><a href="tel:0901761112" aria-label="Call Bui Xuan Hung">0901761112</a></td>
+              <td><a href="mailto:hungbx@ratraco.com.vn" aria-label="Email Bui Xuan Hung">hungbx@ratraco.com.vn</a></td>
+              <td><a href="https://zalo.me/0901761112" target="_blank" rel="noopener noreferrer" aria-label="Contact Bui Xuan Hung on Zalo">Zalo Link</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-<style>
-  .contact-table {
-    width: 90%;
-    margin: 30px auto;
-    border-collapse: collapse;
-    font-family: 'Roboto', Arial, sans-serif;
-    font-size: 18px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" aria-labelledby="contact-form-heading">
+      <div class="contact-section">
+        <div class="contact-form">
+          <h2 id="contact-form-heading">Contact Us</h2>
+          <p class="form-description">Fill out the form below and we'll get back to you as soon as possible.</p>
 
-  .contact-table th {
-    background-color: #e67e22; 
-    color: #fff;
-    padding: 15px;
-    text-align: center;
-    font-size: 20px;
-  }
+          <form id="webform6916395000000627003" 
+                action="https://crm.zoho.com/crm/WebToLeadForm" 
+                name="WebToLeads6916395000000627003" 
+                method="POST" 
+                onsubmit='javascript:document.charset="UTF-8"; return checkMandatory6916395000000627003()' 
+                accept-charset="UTF-8"
+                role="form"
+                aria-label="Contact form">
 
-  .contact-table td {
-    border: 1px solid #ddd;
-    padding: 12px 15px;
-    text-align: center;
-  }
+            <!-- Hidden Zoho fields -->
+            <input type="hidden" name="xnQsjsdp" value="e49858f3c5497ff9234118fdea645bb039ea76eee25bd0c278b8333193dcf45f">
+            <input type="hidden" name="zc_gad" id="zc_gad" value="">
+            <input type="hidden" name="xmIwtLD" value="c065907136a7f5b58b563e81e959980a8e1cab0fc8a13096aefa4758095bda5aed86f140e15fed652a9fc69d64840b39">
+            <input type="hidden" name="actionType" value="TGVhZHM=">
+            <input type="hidden" name="returnURL" value="https://yukine-37116.github.io/contact-site/">
 
-  .contact-table tr:nth-child(even) {
-    background-color: #f9f9f9; 
-  }
+            <!-- Form Fields -->
+            <div class="form-group">
+              <label for="Last_Name">Name: <span class="required" aria-label="required">*</span></label>
+              <input type="text" 
+                     id="Last_Name" 
+                     name="Last Name" 
+                     required 
+                     aria-required="true"
+                     placeholder="Enter your full name">
+            </div>
 
-  .contact-table tr:hover {
-    background-color: #f1f1f1; 
-  }
+            <div class="form-group">
+              <label for="Email">Email: <span class="required" aria-label="required">*</span></label>
+              <input type="email" 
+                     id="Email" 
+                     name="Email" 
+                     ftype="email" 
+                     pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                     title="Please enter a valid email address"
+                     required 
+                     aria-required="true"
+                     placeholder="Enter your email address">
+            </div>
 
-  .contact-table a {
-    color: #0E2A87;  
-    text-decoration: none;
-    font-weight: bold;
-  }
+            <div class="form-group">
+              <label for="Phone">Phone: <span class="required" aria-label="required">*</span></label>
+              <input type="tel" 
+                     id="Phone" 
+                     name="Phone" 
+                     required 
+                     aria-required="true"
+                     placeholder="Enter your phone number"
+                     pattern="[\+]?[0-9\s\-\(\)]{10,}"
+                     title="Please enter a valid phone number (minimum 10 digits)">
+            </div>
 
-  .contact-table a:hover {
-    color: #e67e22;  
-    text-decoration: underline;
-  }
-</style>
-  
-<div class="contact-section">
-  <div class="contact-form">
-    <h2>Contact Us</h2>
+            <div class="form-group">
+              <label for="City">POL/POD: <span class="required" aria-label="required">*</span></label>
+              <input type="text" 
+                     id="City" 
+                     name="Annual City" 
+                     required 
+                     aria-required="true"
+                     placeholder="Port of Loading / Port of Discharge">
+            </div>
 
-    <form id="webform6916395000000627003" 
-          action="https://crm.zoho.com/crm/WebToLeadForm" 
-          name="WebToLeads6916395000000627003" 
-          method="POST" 
-          onsubmit='javascript:document.charset="UTF-8"; return checkMandatory6916395000000627003()' 
-          accept-charset="UTF-8">
+            <div class="form-group">
+              <label for="Description">Commodity Description (HS CODE): <span class="required" aria-label="required">*</span></label>
+              <textarea id="Description" 
+                        name="Description" 
+                        required 
+                        aria-required="true"
+                        placeholder="Describe your commodity and include HS code if available"
+                        rows="4"></textarea>
+            </div>
 
-      <!-- Hidden Zoho fields -->
-      <input type="hidden" name="xnQsjsdp" value="e49858f3c5497ff9234118fdea645bb039ea76eee25bd0c278b8333193dcf45f">
-      <input type="hidden" name="zc_gad" id="zc_gad" value="">
-      <input type="hidden" name="xmIwtLD" value="c065907136a7f5b58b563e81e959980a8e1cab0fc8a13096aefa4758095bda5aed86f140e15fed652a9fc69d64840b39">
-      <input type="hidden" name="actionType" value="TGVhZHM=">
-      <input type="hidden" name="returnURL" value="https://yukine-37116.github.io/contact-site/">
+            <button type="submit" class="submit-btn">
+              Submit Inquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
 
-      <!-- Visible fields -->
-      <label for="Last_Name">Name:</label>
-      <input type="text" id="Last_Name" name="Last Name" required>
-
-      <label for="Email">Email:</label>
-      <input type="email" id="Email" name="Email" ftype="email" required>
-
-      <label for="Phone">Phone:</label>
-      <input type="tel" id="Phone" name="Phone" required>
-
-      <label for="City">POL/POD:</label>
-      <input type="text" id="City" name="Annual City" required>
-
-      <label for="Description">Commodity Desc. (HS CODE):</label>
-      <textarea id="Description" name="Description" required></textarea>
-
-      <!-- Optional: Privacy consent -->
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-</div>
-
-<script>
-  function validateEmail6916395000000627003 (){
-    var form = document.forms['WebToLeads6916395000000627003'];
-    var emailFld = form.querySelectorAll('[ftype=email]');
-    for(var i=0; i<emailFld.length; i++ ){
-      var emailVal = emailFld[i].value;
-      if(emailVal.trim().length != 0 ){
-        var atpos=emailVal.indexOf('@');
-        var dotpos=emailVal.lastIndexOf('.');
-        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=emailVal.length){
-          alert('Please enter a valid email address.');
-          emailFld[i].focus();
-          return false;
-        }
-      }
-    }
-    return true;
-  }
-
-  function privacyAlert6916395000000627003 (){
-    var privacyTool = document.getElementById('privacyTool6916395000000627003');
-    var privacyErr = document.getElementById('privacyErr6916395000000627003');
-    if(privacyTool && !privacyTool.checked){
-      privacyErr.style.visibility = 'visible';
-      privacyTool.focus();
-      return false;
-    }
-    return true;
-  }
-  function disableErr6916395000000627003 (){
-    var privacyErr = document.getElementById('privacyErr6916395000000627003');
-    privacyErr.style.visibility = 'hidden';
-  }
-
-  function checkMandatory6916395000000627003() {
-    var mndFileds = ['Last Name','Email','Phone','City','Description'];
-    var fldLangVal = ['Name','Email','Phone','POL/POD','Commodity Desc. (HS CODE)'];
-    for(var i=0;i<mndFileds.length;i++) {
-      var fieldObj=document.forms['WebToLeads6916395000000627003'][mndFileds[i]];
-      if(fieldObj && fieldObj.value.trim().length==0) {
-        alert(fldLangVal[i] +' cannot be empty.');
-        fieldObj.focus();
-        return false;
-      }
-    }
-    if(!validateEmail6916395000000627003()){return false;}
-    if(!privacyAlert6916395000000627003()){return false;}
-    document.querySelector('.contact-form button[type=submit]').setAttribute('disabled',true);
-  }
-</script>
-
-<style>
-  .contact-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 50px 0;
-  }
-  .contact-form {
-    background: #f9f9f9;
-    border: 2px solid #e67e22;
-    border-radius: 12px;
-    padding: 30px 40px;
-    max-width: 500px;
-    width: 100%;
-    box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
-  }
-  .contact-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #e67e22;  
-    font-size: 24px;
-    font-weight: bold;
-  }
-  .contact-form label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-    color: #333;
-  }
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-  .contact-form textarea {
-    resize: vertical;
-    height: 100px;
-  }
-  .contact-form button {
-    background-color: #e67e22;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.3s ease;
-  }
-  .contact-form button:hover {
-    background-color: #cc580f; 
-  }
-</style>
-
-</div>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: "Inter", sans-serif;
-  }
-  .formbold-main-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 48px;
-  }
-
-  .formbold-form-wrapper {
-    margin: 0 auto;
-    max-width: 550px;
-    width: 100%;
-    background: white;
-  }
-
-  .formbold-input-flex {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 22px;
-  }
-  .formbold-input-flex > div {
-    width: 50%;
-    display: flex;
-    flex-direction: column-reverse;
-  }
-  .formbold-textarea {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-
-  .formbold-form-input {
-    width: 100%;
-    padding-bottom: 10px;
-    border: none;
-    border-bottom: 1px solid #DDE3EC;
-    background: #FFFFFF;
-    font-weight: 500;
-    font-size: 16px;
-    color: #07074D;
-    outline: none;
-    resize: none;
-  }
-  .formbold-form-input::placeholder {
-    color: #536387;
-  }
-  .formbold-form-input:focus {
-    border-color: #6A64F1;
-  }
-  .formbold-form-label {
-    color: #07074D;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    display: block;
-    margin-bottom: 18px;
-  }
-  .formbold-form-input:focus + .formbold-form-label {
-    color: #6A64F1;
-  }
-
-  .formbold-input-file {
-    margin-top: 30px;
-  }
-  .formbold-input-file input[type="file"] {
-    position: absolute;
-    top: 6px;
-    left: 0;
-    z-index: -1;
-  }
-  .formbold-input-file .formbold-input-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    position: relative;
-  }
-
-  .formbold-filename-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 22px;
-  }
-  .formbold-filename {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 14px;
-    line-height: 24px;
-    color: #536387;
-  }
-  .formbold-filename svg {
-    cursor: pointer;
-  }
-
-  .formbold-btn {
-    font-size: 16px;
-    border-radius: 5px;
-    padding: 12px 25px;
-    border: none;
-    font-weight: 500;
-    background-color: #6A64F1;
-    color: white;
-    cursor: pointer;
-    margin-top: 25px;
-  }
-  .formbold-btn:hover {
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-  }
-</style>
-  
-<!-- FOOTER -->
-    <div class="map-mango-hotel">
+    <!-- Map Section -->
+    <section class="map-section" aria-labelledby="map-heading">
+      <h2 id="map-heading" class="sr-only">Our Location</h2>
+      <div class="map-mango-hotel">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1911774973537!2d105.83878587515306!3d21.025035187906635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab90af75b827%3A0xda233ac4f1849591!2sMango%20Hotel!5e0!3m2!1sen!2s!4v1755673777263!5m2!1sen!2s"
                 width="100%"
                 height="450"
                 style="border:0;"
                 allowfullscreen=""
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ratraco Office Location - Mango Hotel"
+                aria-label="Interactive map showing Ratraco office location at Mango Hotel">
         </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-logo">
+      <img src="ratraco.png" alt="Ratraco Logo">
     </div>
-    <style>
-        .map iframe,
-        .map {
-            display: block;
-            margin-bottom: 0 !important;
-            padding-bottom: 0 !important;
-        }
 
-        .contact-section {
-            margin-bottom: 0 !important;
-            padding-bottom: 0 !important;
-        }
+    <div class="footer-divider" aria-hidden="true"></div>
 
-        footer {
-            margin-top: 0 !important;
-            padding-top: 20px; /* keep a little spacing for readability */
-        }
-    </style>
-    <!-- FOOTER -->
+    <div class="footer-info">
+      <p>
+        <i class="fa-solid fa-location-dot" style="color:orange;" aria-hidden="true"></i>
+        4th floor, 118 Le Duan Street, Van Mieu - Quoc Tu Giam Ward, Hanoi, Vietnam.
+      </p>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Ratraco Footer</title>
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, sans-serif;
-            }
+      <div class="footer-columns">
+        <div class="col">
+          <p>
+            <i class="fa-solid fa-phone" style="color:orange;" aria-hidden="true"></i> 
+            <a href="tel:084906280199" aria-label="Call our main phone number">(084) 906 280 199</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope" style="color:orange;" aria-hidden="true"></i> 
+            <a href="mailto:lvqt@ratraco.com.vn" aria-label="Email us at lvqt">lvqt@ratraco.com.vn</a> / 
+            <a href="mailto:oszd@ratraco.com.vn" aria-label="Email us at oszd">oszd@ratraco.com.vn</a>
+          </p>
+        </div>
+        <div class="col">
+          <p>
+            <i class="fa-solid fa-fax" style="color:orange;" aria-hidden="true"></i> 
+            <a href="tel:084906280199" aria-label="Fax number">(084) 906 280 199</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-link" style="color:orange;" aria-hidden="true"></i>
+            <a href="http://ratraco.com.vn" target="_blank" rel="noopener noreferrer" aria-label="Visit our website">ratraco.com.vn</a>
+          </p>
+        </div>
+      </div>
+    </div>
 
-            .footer {
-                background: url('your-background.jpg') no-repeat center center/cover;
-                background-color: #002f87d1;
-                color: #fff;
-                display: flex;
-                justify-content: space-between;
-                align-items: stretch;
-                padding: 40px 0; /* giữ nguyên, không cần tăng */
-                position: relative;
-                font-size: 18px; /* tăng toàn bộ text lên */
-            }
+    <div class="footer-right">
+      <p>
+        <a href="#" aria-label="Access webmail">Webmail</a> | 
+        <a href="#contact-form-heading" aria-label="Contact us">Liên hệ</a>
+      </p>
+      <p class="social" aria-label="Follow us on social media">
+        <a href="#" aria-label="Follow us on YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" aria-label="Follow us on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Follow us on Google Plus"><i class="fa-brands fa-google-plus-g"></i></a>
+        <a href="#" aria-label="Follow us on Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </p>
+      <div class="footer-bottom">2015 Ratraco. All rights reserved.</div>
+    </div>
+  </footer>
 
-                .footer::before {
-                    content: "";
-                    position: absolute;
-                    inset: 0;
-                    background: rgba(0,47,135,0.9);
-                    z-index: 0;
-                }
-
-                .footer > div {
-                    position: relative;
-                    z-index: 1;
-                }
-
-            .footer-logo {
-                flex: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-                .footer-logo img {
-                    max-width: 250px; /* logo to hơn */
-                }
-
-            /* gạch trắng riêng biệt */
-            .footer-divider {
-                width: 1.5px;
-                background: #fff;
-                opacity: 0.9;
-                margin: 0 30px;
-                align-self: stretch;
-            }
-
-            .footer-info {
-                flex: 2;
-                font-size: 18px; /* text to hơn */
-            }
-
-                .footer-info p {
-                    margin: 12px 0;
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    font-size: 18px;
-                }
-
-                .footer-info a {
-                    color: #fff; /* trắng */
-                    text-decoration: none;
-                }
-
-                    .footer-info a:hover {
-                        text-decoration: underline;
-                    }
-
-            .footer-columns {
-                display: flex;
-                justify-content: space-between;
-                margin-top: 8px;
-            }
-
-                .footer-columns .col {
-                    flex: 1;
-                }
-
-            .footer-right {
-                flex: 1;
-                text-align: left;
-                font-size: 18px; /* chữ bên phải to hơn */
-            }
-
-                .footer-right a {
-                    color: #fff;
-                    margin: 0 5px;
-                    font-size: 14px;
-                    text-decoration: none;
-                }
-
-            .footer-right .social {
-    display: flex;
-    gap: 12px; /* khoảng cách giữa các icon */
-}
-
-.footer-right .social a {
-    color: orange;
-    font-size: 24px;
-    text-decoration: none;
-}
-
-            .footer-bottom {
-                margin-top: 10px;
-                font-size: 13px;
-                color: #fff;
-                opacity: 1;
-            }
-          .footer-right p,
-.footer-right .social,
-.footer-right .footer-bottom {
-    margin-bottom: 15px; /* khoảng cách 15px giữa các phần */
-}
-
-.footer-right .footer-bottom {
-    margin-bottom: 0; /* bỏ khoảng cách thừa cuối */
-}
-        </style>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    </head>
-    <body>
-        <footer class="footer">
-            <div class="footer-logo">
-                <img src="ratraco.png" alt="Ratraco">
-            </div>
-
-            <!-- gạch trắng riêng -->
-            <div class="footer-divider"></div>
-
-            <div class="footer-info">
-                <p>
-                    <i class="fa-solid fa-location-dot" style="color:orange;"></i>
-                    4th floor, 118 Le Duan Street, Van Mieu - Quoc Tu Giam Ward, Hanoi, Vietnam.
-                </p>
-
-                <div class="footer-columns">
-                    <div class="col">
-                        <p><i class="fa-solid fa-phone" style="color:orange;"></i> (084) 906 280 199</p>
-                        <p><i class="fa-solid fa-envelope" style="color:orange;"></i> lvqt@ratraco.com.vn / oszd@ratraco.com.vn</p>
-                    </div>
-                    <div class="col">
-                        <p><i class="fa-solid fa-fax" style="color:orange;"></i> (084) 906 280 199</p>
-                        <p>
-                            <i class="fa-solid fa-link" style="color:orange;"></i>
-                            <a href="http://ratraco.com.vn">ratraco.com.vn</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-right">
-                <p>
-                    <a href="#">Webmail</a> | <a href="#">Liên hệ</a>
-                </p>
-                <p class="social">
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </p>
-                <div class="footer-bottom">2015 Ratraco. All rights reserved.</div>
-            </div>
-        </footer>
-    </body>
-</html>
-
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

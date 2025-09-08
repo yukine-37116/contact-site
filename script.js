@@ -1,0 +1,310 @@
+// Form validation functions for Zoho CRM integration
+// Email validation is now handled by validateEmailFormat() function
+
+function privacyAlert6916395000000627003() {
+  var privacyTool = document.getElementById('privacyTool6916395000000627003');
+  var privacyErr = document.getElementById('privacyErr6916395000000627003');
+  
+  if (privacyTool && !privacyTool.checked) {
+    privacyErr.style.visibility = 'visible';
+    privacyTool.focus();
+    return false;
+  }
+  return true;
+}
+
+function disableErr6916395000000627003() {
+  var privacyErr = document.getElementById('privacyErr6916395000000627003');
+  if (privacyErr) {
+    privacyErr.style.visibility = 'hidden';
+  }
+}
+
+// Enhanced phone validation function
+function validatePhoneNumber(phoneValue) {
+  // Remove all spaces, hyphens, parentheses for validation
+  var cleanPhone = phoneValue.replace(/[\s\-\(\)]/g, '');
+  
+  // Check if it starts with + (international format)
+  var hasCountryCode = cleanPhone.startsWith('+');
+  
+  if (hasCountryCode) {
+    // International format: +XX followed by 8-15 digits
+    var phoneRegex = /^\+[1-9]\d{8,14}$/;
+    return phoneRegex.test(cleanPhone);
+  } else {
+    // Local format: 10-15 digits
+    var phoneRegex = /^[0-9]{10,15}$/;
+    return phoneRegex.test(cleanPhone);
+  }
+}
+
+// Enhanced email validation function
+function validateEmailFormat(emailValue) {
+  // More comprehensive email validation
+  var emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  
+  // Check basic format
+  if (!emailRegex.test(emailValue.toLowerCase())) {
+    return false;
+  }
+  
+  // Additional checks
+  var parts = emailValue.split('@');
+  if (parts.length !== 2) return false;
+  
+  var localPart = parts[0];
+  var domainPart = parts[1];
+  
+  // Check local part length (before @)
+  if (localPart.length > 64) return false;
+  
+  // Check domain part length (after @)
+  if (domainPart.length > 253) return false;
+  
+  // Check for consecutive dots
+  if (emailValue.includes('..')) return false;
+  
+  // Check if starts or ends with dot
+  if (localPart.startsWith('.') || localPart.endsWith('.')) return false;
+  
+  return true;
+}
+
+function checkMandatory6916395000000627003() {
+
+  var mndFileds = ['Last Name', 'Email', 'Phone', 'City', 'Description'];
+  var fldLangVal = ['Name', 'Email', 'Phone', 'POL/POD', 'Commodity Desc. (HS CODE)'];
+  
+  for (var i = 0; i < mndFileds.length; i++) {
+    var fieldObj = document.forms['WebToLeads6916395000000627003'][mndFileds[i]];
+    if (fieldObj && fieldObj.value.trim().length == 0) {
+      alert(fldLangVal[i] + ' cannot be empty.');
+      fieldObj.focus();
+      return false;
+    }
+  }
+  
+  // Enhanced email validation
+  var emailField = document.forms['WebToLeads6916395000000627003']['Email'];
+  if (emailField && emailField.value.trim().length > 0) {
+    if (!validateEmailFormat(emailField.value.trim())) {
+      alert('Please enter a valid email address. Examples: user@example.com, john.doe@company.co.uk');
+      emailField.focus();
+      return false;
+    }
+  }
+  
+  // Enhanced phone validation
+  var phoneField = document.forms['WebToLeads6916395000000627003']['Phone'];
+  if (phoneField && phoneField.value.trim().length > 0) {
+    if (!validatePhoneNumber(phoneField.value.trim())) {
+      alert('Please enter a valid phone number. Examples: +84123456789, 0123456789, (012) 345-6789');
+      phoneField.focus();
+      return false;
+    }
+  }
+  
+  if (!privacyAlert6916395000000627003()) {
+    return false;
+  }
+  
+  // Disable submit button to prevent double submission
+  var submitBtn = document.querySelector('.contact-form button[type=submit]');
+  if (submitBtn) {
+    submitBtn.setAttribute('disabled', true);
+    submitBtn.textContent = 'Submitting...';
+  }
+  
+  return true;
+}
+
+// Enhanced form validation with better UX
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('webform6916395000000627003');
+  if (!form) return;
+  
+  const inputs = form.querySelectorAll('input[required], textarea[required]');
+  const phoneField = form.querySelector('input[type="tel"]');
+  
+  // Add input formatting for phone field (without validation messages)
+  if (phoneField) {
+    phoneField.addEventListener('input', function() {
+      formatPhoneInput(this);
+    });
+  }
+  
+  // Remove real-time validation - only validate on form submission
+});
+
+function formatPhoneInput(field) {
+  let value = field.value.replace(/\D/g, ''); // Remove non-digits
+  
+  // Don't format if it starts with + (international)
+  if (field.value.startsWith('+')) {
+    return;
+  }
+  
+  // Format Vietnamese phone numbers
+  if (value.length >= 10) {
+    if (value.startsWith('0')) {
+      // Format: 0XXX XXX XXX
+      value = value.replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3');
+    }
+  }
+  
+  // Update field value without triggering infinite loop
+  if (field.value !== value && !field.value.startsWith('+')) {
+    field.value = value;
+  }
+}
+
+function validatePhoneField(field) {
+  const value = field.value.trim();
+  
+  // Clear previous error
+  clearPhoneError(field);
+  
+  if (!value) {
+    showPhoneError(field, 'Phone number is required');
+    return false;
+  }
+  
+  if (!validatePhoneNumber(value)) {
+    showPhoneError(field, 'Please enter a valid phone number. Examples: +84123456789, 0123456789');
+    return false;
+  }
+  
+  return true;
+}
+
+function showPhoneError(field, message) {
+  // Remove existing error message
+  const existingError = field.parentNode.querySelector('.phone-error');
+  if (existingError) {
+    existingError.remove();
+  }
+  
+  // Don't show visual error message - validation happens silently
+  // The browser's built-in validation or form submission validation will handle user feedback
+}
+
+function clearPhoneError(field) {
+  const errorDiv = field.parentNode.querySelector('.phone-error');
+  if (errorDiv) {
+    errorDiv.remove();
+  }
+}
+
+function validateField(field) {
+  const value = field.value.trim();
+  
+  // Clear previous error
+  clearFieldError(field);
+  
+  if (!value) {
+    showFieldError(field, 'This field is required');
+    return false;
+  }
+  
+  // Email validation
+  if (field.type === 'email' || field.getAttribute('ftype') === 'email') {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      showFieldError(field, 'Please enter a valid email address');
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+function showFieldError(field, message) {
+  // Remove existing error message
+  const existingError = field.parentNode.querySelector('.field-error');
+  if (existingError) {
+    existingError.remove();
+  }
+  
+  // Don't show visual error message - validation happens silently
+  // The browser's built-in validation or form submission validation will handle user feedback
+}
+
+function clearFieldError(field) {
+  const errorDiv = field.parentNode.querySelector('.field-error');
+  if (errorDiv) {
+    errorDiv.remove();
+  }
+}
+
+// Smooth scrolling for better UX
+document.addEventListener('DOMContentLoaded', function() {
+  // Add smooth scrolling to all anchor links
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+});
+
+// Mobile menu toggle (if needed in future)
+function toggleMobileMenu() {
+  const menu = document.querySelector('.mobile-menu');
+  if (menu) {
+    menu.classList.toggle('active');
+  }
+}
+
+// Lazy loading for images (if added in future)
+function lazyLoadImages() {
+  const images = document.querySelectorAll('img[data-src]');
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+        imageObserver.unobserve(img);
+      }
+    });
+  });
+  
+  images.forEach(img => imageObserver.observe(img));
+}
+
+// Initialize lazy loading when DOM is ready
+document.addEventListener('DOMContentLoaded', lazyLoadImages);
+
+// Form submission enhancement
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('webform6916395000000627003');
+  if (!form) return;
+  
+  form.addEventListener('submit', function(e) {
+    // Let the original validation run first
+    const isValid = checkMandatory6916395000000627003();
+    
+    if (!isValid) {
+      e.preventDefault();
+      return false;
+    }
+    
+    // If validation passes, show loading state
+    const submitBtn = form.querySelector('button[type=submit]');
+    if (submitBtn) {
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+    }
+    
+    // Form will submit normally after this
+    return true;
+  });
+});
