@@ -435,187 +435,195 @@
     referrerpolicy="no-referrer-when-downgrade">
   </iframe>
 </div>
-<style>
-    .ratraco-map iframe {
-    display: block;     /* bỏ inline-space */
-    margin: 0;          /* xoá margin mặc định */
-    padding: 0;         /* xoá padding */
-    }
-
-    .ratraco-map {
-    margin: 0;
-    padding: 0;
-    line-height: 0;     /* xoá khoảng trắng do line-height */
-    }
- </style> 
-<!-- FOOTER -->
-<head>
-    <meta charset="UTF-8">
-    <title>Ratraco Footer</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
+        .map iframe,
+        .map {
+            display: block;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
         }
 
-        .footer {
-            background: url('your-background.jpg') no-repeat center center/cover;
-            position: relative;
-            background-color: #002f87d1;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: stretch; /* để các cột cao bằng nhau */
-            padding: 30px 50px;
-            position: relative;
+        .contact-section {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
         }
 
-            .footer::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: rgba(0,47,135,0.9);
-                z-index: 0;
-            }
-
-            .footer > div {
-                position: relative;
-                z-index: 1;
-            }
-
-        .footer-logo {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-            .footer-logo img {
-                max-width: 180px;
-            }
-
-        /* gạch trắng riêng biệt */
-        .footer-divider {
-            position: absolute;
-            width: 1.5px;
-            background: #fff;
-            opacity: 0.9;
-            margin: 0 30px;
-            align-self: stretch;
-            top: 0;
-            bottom: 0;
-        }
-
-        .footer-info {
-            flex: 2;
-            font-size: 14px;
-        }
-
-            .footer-info p {
-                margin: 8px 0;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
-
-            .footer-info a {
-                color: #fff; /* trắng */
-                text-decoration: none;
-            }
-
-                .footer-info a:hover {
-                    text-decoration: underline;
-                }
-
-        .footer-columns {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
-        }
-
-            .footer-columns .col {
-                flex: 1;
-            }
-
-        .footer-right {
-            flex: 1;
-            text-align: left;
-            font-size: 14px;
-        }
-            .footer-right .social {
-                display: flex;
-                gap: 15px; /* khoảng cách giữa các icon */
-            }
-            .footer-right a {
-                color: #fff;
-                margin: 0 5px;
-                font-size: 14px;
-                text-decoration: none;
-            }
-
-            .footer-right .social a {
-                color: orange;
-                margin: 0 5px;
-                font-size: 18px;
-                text-decoration: none;
-            }
-
-        .footer-bottom {
-            margin-top: 10px;
-            font-size: 13px;
-            color: #fff;
-            opacity: 1;
+        footer {
+            margin-top: 0 !important;
+            padding-top: 20px; /* keep a little spacing for readability */
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
-    <footer class="footer">
-        <div class="footer-logo">
-            <img src="logo-ratraco.png" alt="Ratraco">
-        </div>
+    <!-- FOOTER -->
 
-        <!-- gạch trắng riêng -->
-        <div class="footer-divider"></div>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ratraco Footer</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
 
-        <div class="footer-info">
-            <p>
-                <i class="fa-solid fa-location-dot" style="color:orange;"></i>
-                Tầng 4, tòa nhà 118 Lê Duẩn, Cửa Nam, Hoàn Kiếm, Hà Nội
-            </p>
+            .footer {
+                background: url('your-background.jpg') no-repeat center center/cover;
+                background-color: #002f87d1;
+                color: #fff;
+                display: flex;
+                justify-content: space-between;
+                align-items: stretch;
+                padding: 40px 0; /* giữ nguyên, không cần tăng */
+                position: relative;
+                font-size: 18px; /* tăng toàn bộ text lên */
+            }
 
-            <div class="footer-columns">
-                <div class="col">
-                    <p><i class="fa-solid fa-phone" style="color:orange;"></i> (024) 3942 9732</p>
-                    <p><i class="fa-solid fa-envelope" style="color:orange;"></i> info@ratraco.com.vn</p>
-                </div>
-                <div class="col">
-                    <p><i class="fa-solid fa-fax" style="color:orange;"></i> (024) 3822 1716</p>
-                    <p>
-                        <i class="fa-solid fa-link" style="color:orange;"></i>
-                        <a href="http://ratraco.com.vn">ratraco.com.vn</a>
-                    </p>
+                .footer::before {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(0,47,135,0.9);
+                    z-index: 0;
+                }
+
+                .footer > div {
+                    position: relative;
+                    z-index: 1;
+                }
+
+            .footer-logo {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+                .footer-logo img {
+                    max-width: 250px; /* logo to hơn */
+                }
+
+            /* gạch trắng riêng biệt */
+            .footer-divider {
+                width: 1.5px;
+                background: #fff;
+                opacity: 0.9;
+                margin: 0 30px;
+                align-self: stretch;
+            }
+
+            .footer-info {
+                flex: 2;
+                font-size: 18px; /* text to hơn */
+            }
+
+                .footer-info p {
+                    margin: 12px 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    font-size: 18px;
+                }
+
+                .footer-info a {
+                    color: #fff; /* trắng */
+                    text-decoration: none;
+                }
+
+                    .footer-info a:hover {
+                        text-decoration: underline;
+                    }
+
+            .footer-columns {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 8px;
+            }
+
+                .footer-columns .col {
+                    flex: 1;
+                }
+
+            .footer-right {
+                flex: 1;
+                text-align: left;
+                font-size: 18px; /* chữ bên phải to hơn */
+            }
+
+                .footer-right .social a {
+                    font-size: 24px; /* icon mạng xã hội to hơn */
+                    color: orange;
+                }
+
+                .footer-right a {
+                    color: #fff;
+                    margin: 0 5px;
+                    font-size: 14px;
+                    text-decoration: none;
+                }
+
+                .footer-right .social a {
+                    color: orange;
+                    margin: 0 5px;
+                    font-size: 18px;
+                    text-decoration: none;
+                }
+
+            .footer-bottom {
+                margin-top: 10px;
+                font-size: 13px;
+                color: #fff;
+                opacity: 1;
+            }
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+        <footer class="footer">
+            <div class="footer-logo">
+                <img src="logo-ratraco.png" alt="Ratraco">
+            </div>
+
+            <!-- gạch trắng riêng -->
+            <div class="footer-divider"></div>
+
+            <div class="footer-info">
+                <p>
+                    <i class="fa-solid fa-location-dot" style="color:orange;"></i>
+                    Tầng 4, tòa nhà 118 Lê Duẩn, Cửa Nam, Hoàn Kiếm, Hà Nội
+                </p>
+
+                <div class="footer-columns">
+                    <div class="col">
+                        <p><i class="fa-solid fa-phone" style="color:orange;"></i> (024) 3942 9732</p>
+                        <p><i class="fa-solid fa-envelope" style="color:orange;"></i> info@ratraco.com.vn</p>
+                    </div>
+                    <div class="col">
+                        <p><i class="fa-solid fa-fax" style="color:orange;"></i> (024) 3822 1716</p>
+                        <p>
+                            <i class="fa-solid fa-link" style="color:orange;"></i>
+                            <a href="http://ratraco.com.vn">ratraco.com.vn</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="footer-right">
-            <p>
-                <a href="#">Webmail</a> | <a href="#">Liên hệ</a>
-            </p>
-            <p class="social">
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            </p>
-            <div class="footer-bottom">
-                2015 Ratraco. All rights reserved.
+            <div class="footer-right">
+                <p>
+                    <a href="#">Webmail</a> | <a href="#">Liên hệ</a>
+                </p>
+                <p class="social">
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </p>
+                <div class="footer-bottom">
+                    2015 Ratraco. All rights reserved.
+                </div>
             </div>
-        </div>
-    </footer>
-</body>
+        </footer>
+    </body>
+</html>
+
 </body>
 </html>
 
