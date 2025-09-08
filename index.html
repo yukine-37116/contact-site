@@ -424,7 +424,6 @@
 </style>
   
 <!-- FOOTER -->
-</footer>
 <div class="map-mango-hotel">
   <iframe 
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1911774973537!2d105.83878587515306!3d21.025035187906635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab90af75b827%3A0xda233ac4f1849591!2sMango%20Hotel!5e0!3m2!1sen!2s!4v1755673777263!5m2!1sen!2s" 
@@ -438,153 +437,176 @@
 </div>
 
 <!-- FOOTER -->
-<footer class="ratraco-footer">
-  <div class="container-fluid">
-    <div class="rf-row">
+<head>
+    <meta charset="UTF-8">
+    <title>Ratraco Footer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-      <!-- Left: Logo -->
-      <div class="rf-left">
-        <a href="/"><img src="images/ratraco.png" alt="Ratraco Logo" class="footer-logo"></a>
-      </div>
+        .footer {
+            background: url('your-background.jpg') no-repeat center center/cover;
+            position: relative;
+            background-color: #002f87d1;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch; /* để các cột cao bằng nhau */
+            padding: 30px 50px;
+            position: relative;
+        }
 
-      <!-- Divider -->
-      <div class="rf-divider" aria-hidden="true"></div>
+            .footer::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(0,47,135,0.9);
+                z-index: 0;
+            }
 
-      <!-- Right: Contact Information + Socials -->
-      <div class="rf-right row">
-        <h4>CÔNG TY CP VẬN TẢI VÀ THƯƠNG MẠI ĐƯỜNG SẮT (RATRACO)</h4>
+            .footer > div {
+                position: relative;
+                z-index: 1;
+            }
 
-        <!-- Contact Info -->
-        <div class="rf-contact col-12 col-md-8">
-          <div class="rf-col">
-            <p>📍 4th floor, 118 Le Duan Street, Van Mieu - Quoc Tu Giam Ward, Hanoi, Vietnam.</p>
-            <p>☎ (084) 906 280 199</p>
-          </div>  
-          <div class="rf-col">
-            <p>✉ lvqt@ratraco.com.vn / oszd@ratraco.com.vn</p>
-            <p>🔗 <a href="https://ratraco.com.vn" target="_blank" rel="noopener">ratraco.com.vn</a></p>
-          </div>
+        .footer-logo {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .footer-logo img {
+                max-width: 180px;
+            }
+
+        /* gạch trắng riêng biệt */
+        .footer-divider {
+            position: absolute;
+            width: 1.5px;
+            background: #fff;
+            opacity: 0.9;
+            margin: 0 30px;
+            align-self: stretch;
+            top: 0;
+            bottom: 0;
+        }
+
+        .footer-info {
+            flex: 2;
+            font-size: 14px;
+        }
+
+            .footer-info p {
+                margin: 8px 0;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .footer-info a {
+                color: #fff; /* trắng */
+                text-decoration: none;
+            }
+
+                .footer-info a:hover {
+                    text-decoration: underline;
+                }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+        }
+
+            .footer-columns .col {
+                flex: 1;
+            }
+
+        .footer-right {
+            flex: 1;
+            text-align: left;
+            font-size: 14px;
+        }
+            .footer-right .social {
+                display: flex;
+                gap: 15px; /* khoảng cách giữa các icon */
+            }
+            .footer-right a {
+                color: #fff;
+                margin: 0 5px;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+            .footer-right .social a {
+                color: orange;
+                margin: 0 5px;
+                font-size: 18px;
+                text-decoration: none;
+            }
+
+        .footer-bottom {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #fff;
+            opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="logo-ratraco.png" alt="Ratraco">
         </div>
 
-        <!-- Quick Links & Social -->
-        <div class="rf-social col-12 col-md-4">
-          <p>
-            <a href="https://mail.ratraco.com.vn/" target="_blank">Webmail</a> | 
-            <a href="/contact">Contact</a>
-          </p>
-          <div class="social-links">
-            <a href="https://www.youtube.com/@ratracosolution" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/vantaiduongsatratraco" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.google.com" target="_blank" rel="noopener"><i class="fab fa-google-plus-g"></i></a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-          </div>
-          <div class="rf-copy">© 2015 Ratraco. All rights reserved.</div>
+        <!-- gạch trắng riêng -->
+        <div class="footer-divider"></div>
+
+        <div class="footer-info">
+            <p>
+                <i class="fa-solid fa-location-dot" style="color:orange;"></i>
+                Tầng 4, tòa nhà 118 Lê Duẩn, Cửa Nam, Hoàn Kiếm, Hà Nội
+            </p>
+
+            <div class="footer-columns">
+                <div class="col">
+                    <p><i class="fa-solid fa-phone" style="color:orange;"></i> (024) 3942 9732</p>
+                    <p><i class="fa-solid fa-envelope" style="color:orange;"></i> info@ratraco.com.vn</p>
+                </div>
+                <div class="col">
+                    <p><i class="fa-solid fa-fax" style="color:orange;"></i> (024) 3822 1716</p>
+                    <p>
+                        <i class="fa-solid fa-link" style="color:orange;"></i>
+                        <a href="http://ratraco.com.vn">ratraco.com.vn</a>
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</footer>
 
-<style>
-.ratraco-footer {
-  background-color: #0a2a82; /* fallback if bg image fails */
-  color: #fff;
-  padding: 40px 20px;
-  font-family: "Inter", Arial, sans-serif;
-}
-
-.rf-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 40px;
-}
-
-.rf-left {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.rf-left img {
-  max-height: 60px;
-}
-
-.rf-divider {
-  width: 2px;
-  background-color: rgba(255,255,255,0.3);
-  min-height: 150px;
-}
-
-.rf-right {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.rf-contact {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-.rf-contact p {
-  margin: 6px 0;
-  font-size: 16px;
-  text-align: left;
-}
-
-.rf-contact a {
-  color: #fff;
-  text-decoration: none;
-}
-.rf-contact a:hover {
-  text-decoration: underline;
-  color: #f39c12;
-}
-
-.rf-social {
-  margin-top: 10px;
-  text-align: left;
-}
-.rf-social p {
-  margin-bottom: 8px;
-}
-
-.social-links a {
-  color: #fff;
-  font-size: 20px;
-  margin-right: 12px;
-  transition: color 0.3s ease;
-}
-.social-links a:hover {
-  color: #f39c12;
-}
-
-.rf-copy {
-  font-size: 14px;
-  opacity: 0.8;
-  margin-top: 10px;
-}
-
-/* Responsive: stack logo, divider, info */
-@media (max-width: 768px) {
-  .rf-row {
-    flex-direction: column;
-    align-items: center;
-  }
-  .rf-divider {
-    display: none; /* hide divider on mobile */
-  }
-  .rf-contact {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-</style>
+        <div class="footer-right">
+            <p>
+                <a href="#">Webmail</a> | <a href="#">Liên hệ</a>
+            </p>
+            <p class="social">
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </p>
+            <div class="footer-bottom">
+                2015 Ratraco. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
 </body>
 </html>
+
 
 
 
