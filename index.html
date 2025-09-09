@@ -144,6 +144,7 @@
                         rows="4"></textarea>
             </div>
 
+
             <button type="submit" class="submit-btn">
               Submit Inquiry
             </button>
@@ -225,8 +226,23 @@
     </div>
   </footer>
 
+  <!-- reCAPTCHA Modal Popup -->
+  <div id="recaptcha-modal" class="recaptcha-modal" style="display: none;">
+    <div class="recaptcha-backdrop"></div>
+    <div class="recaptcha-popup">
+      <div class="recaptcha-header">
+        <h3>Security Verification</h3>
+        <button type="button" class="recaptcha-close" onclick="closeRecaptchaModal()">&times;</button>
+      </div>
+      <div class="recaptcha-body">
+        <div class="g-recaptcha" data-sitekey="6LcczsMrAAAAADhrwAWhxqDP2UNuQw03jb_Stygy" data-callback="onRecaptchaSuccess"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- External JavaScript -->
   <script src="script.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>

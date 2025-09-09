@@ -229,6 +229,134 @@ h1, h2 {
   font-style: italic;
 }
 
+/* reCAPTCHA Modal Styling */
+.recaptcha-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recaptcha-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.recaptcha-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.recaptcha-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  color: white;
+}
+
+.recaptcha-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.recaptcha-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.recaptcha-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.recaptcha-body {
+  padding: 30px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recaptcha-body p {
+  margin: 0 0 20px 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.recaptcha-body .g-recaptcha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.recaptcha-body .g-recaptcha > div {
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .recaptcha-popup {
+    width: 80%;
+    max-width: none;
+  }
+  
+  .recaptcha-body .g-recaptcha {
+    transform: scale(0.85);
+    transform-origin: center;
+  }
+  
+  .recaptcha-header {
+    padding: 15px;
+  }
+  
+  .recaptcha-body {
+    padding: 20px 15px;
+  }
+}
+
 .submit-btn {
   background-color: #e67e22;
   color: #fff;

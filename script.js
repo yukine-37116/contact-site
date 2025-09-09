@@ -283,28 +283,101 @@ function lazyLoadImages() {
 // Initialize lazy loading when DOM is ready
 document.addEventListener('DOMContentLoaded', lazyLoadImages);
 
-// Form submission enhancement
+// Global variable to track reCAPTCHA state
+let recaptchaCompleted = false;
+
+// Function to show reCAPTCHA modal
+function showRecaptchaModal() {
+  const modal = document.getElementById('recaptcha-modal');
+  if (modal) {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+}
+
+// Function to close reCAPTCHA modal
+function closeRecaptchaModal() {
+  const modal = document.getElementById('recaptcha-modal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+  }
+  
+  // Reset submit button
+  const submitBtn = document.querySelector('.submit-btn');
+  if (submitBtn) {
+    submitBtn.textContent = 'Submit Inquiry';
+    submitBtn.disabled = false;
+  }
+}
+
+// Callback function when reCAPTCHA is completed
+function onRecaptchaSuccess() {
+  recaptchaCompleted = true;
+  console.log('reCAPTCHA completed successfully');
+  
+  // Close modal
+  closeRecaptchaModal();
+  
+  // Auto-submit the form after reCAPTCHA is completed
+  const submitBtn = document.querySelector('.submit-btn');
+  if (submitBtn) {
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+  }
+  
+  // Log the reCAPTCHA response
+  const recaptchaResponse = grecaptcha.getResponse();
+  
+  // Submit the form
+  document.getElementById('webform6916395000000627003').submit();
+}
+
+// Form submission with reCAPTCHA v2 modal
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('webform6916395000000627003');
   if (!form) return;
   
   form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
     // Let the original validation run first
     const isValid = checkMandatory6916395000000627003();
     
     if (!isValid) {
-      e.preventDefault();
       return false;
     }
     
-    // If validation passes, show loading state
+    // If reCAPTCHA already completed, submit immediately
+    if (recaptchaCompleted) {
+      const recaptchaResponse = grecaptcha.getResponse();
+      if (recaptchaResponse) {
+        // Submit the form
+        form.submit();
+        return;
+      }
+    }
+    
+    // Show reCAPTCHA modal popup
+    showRecaptchaModal();
+    
+    // Update button text
     const submitBtn = form.querySelector('button[type=submit]');
     if (submitBtn) {
-      submitBtn.textContent = 'Submitting...';
+      submitBtn.textContent = 'Complete verification in popup';
       submitBtn.disabled = true;
     }
     
-    // Form will submit normally after this
-    return true;
+    return false;
   });
+  
+  // Close modal when clicking backdrop
+  const modal = document.getElementById('recaptcha-modal');
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target.classList.contains('recaptcha-backdrop')) {
+        closeRecaptchaModal();
+      }
+    });
+  }
 });
