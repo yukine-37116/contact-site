@@ -124,6 +124,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('webform6916395000000627003');
   if (!form) return;
   
+  // Check if we just returned from a form submission
+  checkAndClearAfterSubmission();
+  
   const inputs = form.querySelectorAll('input[required], textarea[required]');
   const phoneField = form.querySelector('input[type="tel"]');
   
@@ -283,6 +286,15 @@ function lazyLoadImages() {
 // Initialize lazy loading when DOM is ready
 document.addEventListener('DOMContentLoaded', lazyLoadImages);
 
+// Handle browser back/forward navigation - clear form when returning to page
+window.addEventListener('pageshow', function(event) {
+  // This event fires when navigating back to the page
+  if (event.persisted) {
+    // Page was loaded from cache (back/forward navigation)
+    checkAndClearAfterSubmission();
+  }
+});
+
 // Global variable to track reCAPTCHA state
 let recaptchaCompleted = false;
 
@@ -311,10 +323,91 @@ function closeRecaptchaModal() {
   }
 }
 
+// Function to check if we returned from form submission and clear form
+function checkAndClearAfterSubmission() {
+  
+  // Check if we have a flag indicating form was submitted
+  const formSubmitted = localStorage.getItem('contactFormSubmitted');
+  const lastSubmissionTime = localStorage.getItem('contactFormSubmissionTime');
+  
+  // Check multiple indicators of form submission return
+  const hasSubmissionFlag = formSubmitted === 'true';
+  const cameFromZoho = document.referrer && document.referrer.includes('zoho.com');
+  const hasRecentSubmission = lastSubmissionTime && (Date.now() - parseInt(lastSubmissionTime)) < 60000; // 1 minute
+  
+  // Additional checks for Live Server compatibility
+  const sessionSubmitted = sessionStorage.getItem('contactFormSubmitted') === 'true';
+  const urlHasSubmissionHint = window.location.href.includes('#submitted') || window.location.search.includes('submitted');
+  
+
+  if (hasSubmissionFlag || sessionSubmitted || (cameFromZoho && hasRecentSubmission) || urlHasSubmissionHint) {
+
+    clearFormAfterSubmission();
+    
+    // Clear all the flags
+    localStorage.removeItem('contactFormSubmitted');
+    localStorage.removeItem('contactFormSubmissionTime');
+    sessionStorage.removeItem('contactFormSubmitted');
+    
+    // Clean URL if it has submission hints
+    if (urlHasSubmissionHint) {
+      const cleanUrl = window.location.href.replace(/#submitted.*$/, '').replace(/[?&]submitted[^&]*/, '');
+      window.history.replaceState({}, document.title, cleanUrl);
+    }
+  } else {
+
+  }
+  
+  // Also clear if more than 5 minutes have passed since last submission
+  // if (lastSubmissionTime) {
+  //   const timeDiff = Date.now() - parseInt(lastSubmissionTime);
+  //   if (timeDiff > 5 * 60 * 1000) { // 5 minutes
+  //     console.log('Cleaning up old submission flags (>5 minutes)');
+  //     localStorage.removeItem('contactFormSubmitted');
+  //     localStorage.removeItem('contactFormSubmissionTime');
+  //   }
+  // }
+}
+
+// Function to mark form as submitted
+function markFormAsSubmitted() {
+  const timestamp = Date.now().toString();
+  
+  // Use both localStorage and sessionStorage for better compatibility
+  localStorage.setItem('contactFormSubmitted', 'true');
+  localStorage.setItem('contactFormSubmissionTime', timestamp);
+  sessionStorage.setItem('contactFormSubmitted', 'true');
+  sessionStorage.setItem('contactFormSubmissionTime', timestamp);
+  
+
+}
+
+// Function to clear form after successful submission
+function clearFormAfterSubmission() {
+  const form = document.getElementById('webform6916395000000627003');
+  if (form) {
+    // Reset all form fields
+    form.reset();
+    
+    // Reset submit button state
+    const submitBtn = form.querySelector('button[type=submit]');
+    if (submitBtn) {
+      submitBtn.textContent = 'Submit Inquiry';
+      submitBtn.disabled = false;
+    }
+    
+    // Reset reCAPTCHA state
+    recaptchaCompleted = false;
+    if (typeof grecaptcha !== 'undefined') {
+      grecaptcha.reset();
+    }
+    
+  }
+}
+
 // Callback function when reCAPTCHA is completed
 function onRecaptchaSuccess() {
   recaptchaCompleted = true;
-  console.log('reCAPTCHA completed successfully');
   
   // Close modal
   closeRecaptchaModal();
@@ -330,7 +423,14 @@ function onRecaptchaSuccess() {
   const recaptchaResponse = grecaptcha.getResponse();
   
   // Submit the form
-  document.getElementById('webform6916395000000627003').submit();
+  const form = document.getElementById('webform6916395000000627003');
+  if (form) {
+    // Mark form as submitted before external redirect
+    markFormAsSubmitted();
+    
+    // Submit the form (will redirect to Zoho then back)
+    form.submit();
+  }
 }
 
 // Form submission with reCAPTCHA v2 modal
@@ -352,6 +452,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (recaptchaCompleted) {
       const recaptchaResponse = grecaptcha.getResponse();
       if (recaptchaResponse) {
+        // Mark form as submitted before external redirect
+        markFormAsSubmitted();
+        
         // Submit the form
         form.submit();
         return;
